@@ -17,28 +17,6 @@ def configure_visualizations():
         "figure.titlesize": 16
     })
 
-# Установка фона для шапки с картинкой
-def set_header_background(image_url):
-    header_style = f"""
-    <style>
-    .reportview-container .main .block-container {{
-        padding-top: 3rem;
-    }}
-    .css-1v3fvcr {{
-        background-image: url("{image_url}");
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 2rem;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        height: 200px;  /* Установите высоту шапки */
-    }}
-    </style>
-    """
-    st.markdown(header_style, unsafe_allow_html=True)
-
 # Загрузка и предобработка данных
 def load_and_preprocess_data(file_path):
     data = pd.read_excel(file_path)
@@ -247,12 +225,6 @@ def analyze_medical_data(file_path):
     st.write("""
     В приложении представлен анализ данных об обращениях в медицинскую клинику за 2021 и 2022 годы.
     """)
-
-    # Укажите путь к картинке
-    image_url = '/Users/viktoriasmeleva/Desktop/Meditsina-innovatsii.jpeg'  # Замените на путь к вашему изображению
-
-    # Установка фона с картинкой
-    set_header_background(image_url)
 
     configure_visualizations()
     data = load_and_preprocess_data(file_path)
